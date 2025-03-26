@@ -1,0 +1,416 @@
+
+/* General Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    width: 100vw;
+    background-image: linear-gradient(rgba(0, 251, 255, 0.783),rgba(87, 231, 87, 0.678),rgba(17, 115, 227, 0.788));
+}
+
+.brand {
+    margin-top: 0px;
+    text-align: center;
+    font-size: 200%;
+    z-index: 1002;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #fff; /* Background color for the navbar */
+    color: #000; /* Text color for the navbar */
+    padding: 10px 20px;
+    position: sticky; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav-menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    position: relative;
+    margin-left: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #000;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+
+.nav-menu a:hover {
+    color: #ff0000; /* Hover color */
+}
+
+/* Student ID Dropdown Menu Styles */
+.student-dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute; 
+    top: 100%; 
+    right: 0; /* Align to the right of the student ID */
+    background-color: #fff; /* Background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the dropdown */
+    padding: 10px 0;
+    list-style-type: none;
+    margin: 0;
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1001;
+    width: 150px; /* Adjust width as needed */
+}
+
+.student-dropdown-menu li {
+    margin: 0;
+}
+
+.student-dropdown-menu a {
+    padding: 10px 15px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.student-dropdown-menu a:hover {
+    background-color: #f2f2f2; /* Background color on hover */
+    color: #ff0000; /* Text color on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Show dropdown on hover or when active class is added */
+.student_id:hover .student-dropdown-menu,
+.student_id.active .student-dropdown-menu {
+    display: block;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute; 
+    top: 100%; 
+    left: 0;
+    background-color: #fff; /* Background color of the dropdown */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+    padding: 10px 0;
+    list-style-type: none;
+    margin: 0;
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1001;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f2f2f2; /* Background color on hover */
+    color: #ff0000; /* Text color on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    background-color: rgba(84, 221, 38, 0.767);
+    height: 2px;
+    margin: 4px;
+    width: 25px;
+}
+
+/* Image Slider Styles */
+.slider-container {
+    position: relative;
+    width: 100vw;
+    max-width: 1100px;
+    height: 400px; 
+    margin: auto; 
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slider {
+    position: relative;
+    margin-top: 5%;
+    width: 100%;
+    height: 100%;
+}
+.slide {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 1s ease;
+    width: 100%;  
+    height: 100%; 
+    top: 0;
+    left: 0;
+}
+
+/* Show the active slide */
+.slide.active {
+    opacity: 1;
+    position: relative; 
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    margin-top: 5%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 0px;
+}
+
+.next {
+    right: 0px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .prev,.next{
+        top: 25%;
+        
+    }
+    .slider-container {
+        max-width: 100%;
+        height: 200px;
+    }
+}
+
+/* Events Cards Container */
+.events-container{
+    width: 100vw;
+    border: 1px solid rgba(226, 98, 98, 0.094);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.events {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 20px;
+}
+
+.btn{
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid ;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+/* Card Styles */
+.card {
+    background-image: linear-gradient(rgb(92, 220, 190),rgba(10, 59, 62, 0.756),rgba(110, 88, 237, 0.811));
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+
+/*Motto*/
+.rows{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 20px;
+}
+
+.motto img{
+    width: 80%;
+}
+
+/* Courses Slider Styles */
+.courses-container{
+    width: 100vw;
+    background-image: linear-gradient(#9fed83a1,rgba(109, 109, 220, 0.715),rgba(141, 217, 136, 0.66));
+}
+.courses-slider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.courses {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    overflow-x: scroll; 
+    scroll-behavior: smooth; 
+    cursor: grab; 
+}
+
+
+.courses {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.c-card {
+    background-image: linear-gradient(#9fed83a1,rgba(109, 109, 220, 0.715),rgba(141, 217, 136, 0.66));
+    flex: 0 0 calc(25% - 10px);
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 8px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.course-img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Navigation Buttons */
+.courses-prev, .courses-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.courses-prev {
+    left: 10px;
+}
+
+.courses-next {
+    right: 10px;
+}
+
+/*Footer*/
+footer{
+    background-color: aqua;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+}
+.Copyright{
+    border: 2px dotted rgba(234, 215, 42, 0.893);
+    border-radius: 10px;
+    padding: 2px;
+    background-color: aquamarine;
+    color: #ff7e5f;
+    font-size: larger;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .brand{
+        text-align: center;
+        margin-right: -3%;
+    }
+    .nav-menu {
+        position: absolute;
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        background-color: #4e96c95d; 
+        top: 25px; 
+        left: -20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        padding: 10px;
+        margin-left: 0px;
+        margin-right: 80vw;
+    }
+
+    .nav-menu li {
+        margin: 0;
+    }
+
+    .nav-menu a {
+        padding: 10px;
+        border-bottom: 1px solid #4eb7bd86; 
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+    /* Events Cards Container */
+    .events {
+        grid-template-columns: 1fr; /* 1 card per row in mobile view */
+        gap: 15px;
+    }
+    .rows{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .c-card {
+        flex: 0 0 calc(100% - 10px);
+    }
+}
+
+

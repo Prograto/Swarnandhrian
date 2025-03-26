@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+</head>
+<body>
+    <div class="brand sp-font">Swarnandhrian</div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="{{ url_for('portfolio', student_id=student_id) }}">Portfolio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Code</a>
+                    <!-- Sub-menu for "Code" -->
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('competitor_page', student_id=student_id) }}">Competitor</a></li>
+                        <li><a href="#">Competitions</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Logical</a>
+                    <!-- Sub-menu for "Code" -->
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('logical_competitor_page', student_id=student_id) }}">Competitor</a></li>
+                        <li><a href="#">Competitions</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Technical</a>
+                    <!-- Sub-menu for "Code" -->
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('course_competitor_page', student_id=student_id) }}">Courses</a></li>
+                        <li><a href="#">Competitions</a></li>
+                    </ul>
+                </li>
+            </ul>            
+            <div class="student_id sub-font">
+                {{ student_id }} <span>&#128317;</span>
+                <!-- Dropdown menu for student actions -->
+                <ul class="student-dropdown-menu">
+                    <li><a href="#" onclick="navToProfile()">Profile</a></li>
+                    <li><a href="#">Change Password</a></li>
+                    <li><a href="#" onclick="logOut()">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+   <!-- Image Slider -->
+    <div class="slider-container">
+        <div class="slider"><!-- Dynamic slider images --></div>
+        <!-- Navigation Buttons -->
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+
+    <!-- Upcoming events -->
+    <div class="events-container ">
+        <h1 class="main-font">Upcoming events</h1>
+        <div class="row events"><!-- Dynamic slider images --></div>
+    </div>
+
+    <!-- Motto -->    
+     <div class="rows">
+        <div class="motto">
+            <div class="h2 main-font">Focus</div>
+            <img src="{{ url_for('static', filename='images/focus.png') }}" alt="">
+        </div>
+        <div>
+            <p class="fan-font">This Web is mainly useful for the Tech Enthusiastics, Who are intrested in learning and this will improve the skills of the the students in many ways like programming, logicala nd resoning skills,mini-projects, etc.</p>
+            <button class = "btn sp-font">Explore</button>
+        </div>
+    </div>
+
+     <!-- Courses --> 
+     <div class="courses-container">
+        <h1 class="main-font">Courses</h1>
+        <div class="slider-wrapper">
+            <div class="courses-slider">
+                <div class="courses"><!-- Dynamic course cards will be injected here --></div>
+            </div>
+        </div>
+    </div>
+    
+    <!--footer-->
+    <div id="footer-container"></div>
+
+    <script src="{{ url_for('static', filename='js/student.js') }}"></script>
+    <script>window.footerUrl = "{{ url_for('static', filename='./js/text/footer.txt') }}";</script>
+    <script src="{{ url_for('static', filename='js/footer.js') }}"></script>
+    <script>
+        window.studentId = '{{ student_id }}';
+        window.navbarUrl = "{{ url_for('static', filename='./js/text/nav.txt') }}";
+        // Add the JS code here or reference the external JS file where this code is added
+        document.addEventListener('DOMContentLoaded', function () {
+            const studentIdElement = document.querySelector('.student_id');
+            const dropdownMenu = document.querySelector('.student-dropdown-menu');
+    
+            studentIdElement.addEventListener('click', function (event) {
+                event.stopPropagation(); // Prevent the click event from bubbling up to the body
+                dropdownMenu.classList.toggle('active'); // Toggle active class for dropdown visibility
+            });
+    
+            // Hide the dropdown when clicking outside of it
+            document.addEventListener('click', function () {
+                dropdownMenu.classList.remove('active');
+            });
+    
+            // Prevent click inside dropdown from closing it
+            dropdownMenu.addEventListener('click', function (event) {
+                event.stopPropagation();
+            });
+        });
+
+        function navToProfile() {
+            const studentId = window.studentId;
+            if (studentId) {
+                window.location.href = `/profile`;
+            } else {
+                console.error('Student ID is missing');
+            }
+        }
+
+        function logOut() {
+            const studentId = window.studentId;
+            if (studentId) {
+                window.location.href = `/logout`;
+            } else {
+                console.error('Student ID is missing');
+            }
+        }
+    </script>
+
+</body>
+</html>

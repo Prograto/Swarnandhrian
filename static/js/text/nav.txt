@@ -1,0 +1,63 @@
+<div class="navbar">
+    <div class="nav-container">
+        <!-- Logo or Text -->
+        <div class="text-logo">
+            <a href="#" class="sp-font">Swarnandrian</a>
+        </div>
+
+        <!-- Hamburger Menu Icon for Mobile -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu">
+            <li><a href="#" onclick="navToHome()">Home</a></li>
+            <li><a href="#" onclick="navToPortfolio('{{ student_id }}')">Portfolio</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Code</a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="navigateToCompetitorPage()">Competitor</a></li>
+                    <li><a href="#">Competitions</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Logical</a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="navigateToLogicalCompetitorPage()">Competitor</a></li>
+                    <li><a href="#">Competitions</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Technical</a>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="navigateToCourseCompetitorPage()">Courses</a></li>
+                    <li><a href="#">Competitions</a></li>
+                </ul>
+            </li>
+            <div class="student_id sub-font">
+                {{ student_id }} <span>&#128317;</span>
+                <!-- Dropdown menu for student actions -->
+                <ul class="student-dropdown-menu">
+                    <li><a href="#" onclick="navToProfile()">Profile</a></li>
+                    <li><a href="#">Change Password</a></li>
+                    <li><a href="#" onclick=logOut()>Log Out</a></li>
+                </ul>
+            </div>
+        </ul>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="hero-content">
+        <h1 class="relate">COURSES</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="What do you want to learn?">
+            <button class="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+</div>

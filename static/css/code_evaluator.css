@@ -1,0 +1,114 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 5px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Main container for grid layout */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns layout for larger screens */
+    gap: 20px;
+}
+
+/* Problem and evaluator container */
+.problem-container, .evaluator-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.problem-container {
+    max-width: 100%;
+}
+
+.evaluator-container {
+    max-width: 100%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+textarea, select, input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.problem-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #e9ecef;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.problem-content {
+    padding: 10px;
+}
+.p-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.output-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 cards per row in larger screens */
+}
+
+.output-section .card {
+    text-align: center;
+    padding: auto;
+    margin: 20px;
+    border: 2px solid black;
+    box-shadow: 0px 4px 8px #911ec6; /* Added a proper shadow */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr; /* Stacked layout for mobile */
+    }
+    .output-section{
+        grid-template-columns: 1fr;
+    }
+}

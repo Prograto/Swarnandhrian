@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarnandhrian Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scrollbar.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo sp-font">Swarnandhrian</div>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="https://www.swarnandhra.ac.in">About</a></li>
+                <li><a href="https://www.swarnandhra.ac.in/contactus.php">Contact</a></li>
+                <li><a href="#" id="login-link">Login</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Rotating Images Section -->
+    <div class="carousel">
+        <div class="carousel-container">
+            <img src="{{ url_for('static', filename='images/img1.png') }}" class="carousel-image" alt="Image 1">
+            <img src="{{ url_for('static', filename='images/img2.png') }}" class="carousel-image" alt="Image 2">
+            <img src="{{ url_for('static', filename='images/img3.png') }}" class="carousel-image" alt="Image 3">
+            <img src="{{ url_for('static', filename='images/img4.png') }}" class="carousel-image" alt="Image 4">
+            <img src="{{ url_for('static', filename='images/img5.png') }}" class="carousel-image" alt="Image 5">
+            <img src="{{ url_for('static', filename='images/img6.png') }}" class="carousel-image" alt="Image 6">
+        </div>
+    </div>
+
+    <!-- Login Form (Initially Hidden) -->
+    <div id="login-card" class="login-card">
+        <div class="login-toggle">
+            <button id="student-login" class="login-button active sub-font">Student</button>
+            <button id="staff-login" class="login-button sub-font">Staff</button>
+        </div>
+        <form id="login-form" method="POST" action="{{ url_for('login') }}">
+            <input type="hidden" id="user-type" name="user_type" value="student">
+            <input type="text" id="user-id" name="user_id" placeholder="ID" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit" class="submit-button">Login</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

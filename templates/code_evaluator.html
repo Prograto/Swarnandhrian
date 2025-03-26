@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Code Evaluator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scrollbar.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="{{ url_for('static', filename='./js/norm_nav.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/code_evaluator.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h2 id="statement" class="main-font"></h2>
+    </div>
+    <div class="problem-header">
+        <div class="p-container">
+            <div id="problem-statement"><button class="sub-font">problem-statement</button></div>
+            <div id="submissions"><button class="sub-font">submissions</button></div>
+        </div>  
+        <div class="points">
+            <p id="points"></p>
+        </div>
+    </div>
+    <div class="main-container">
+        <!-- Problem Statement Section -->
+        <div class="problem-container">
+            <div class="problem-content">
+                <h3>Problem Statement</h3>
+                <p id="psdata"></p>
+                <h3>Notes</h3>
+                <p id="ndata"></p>
+                <h3>Input Format</h3>
+                <p id="indata"></p>
+                <h3>Output Format</h3>
+                <p id="outdata"></p>
+                <h3>Sample Input 1</h3>
+                <p id="in1data"></p>
+                <h3>Sample Output 1</h3>
+                <p id="out1data"></p>
+                <h3>Sample Input 2</h3>
+                <p id="in2data"></p>
+                <h3>Sample Output 2</h3>
+                <p id="out2data"></p>
+            </div>
+        </div>
+
+        <!-- Code Evaluator Section -->
+        <div class="evaluator-container">
+            <div class="form-group">
+                <label for="codeLanguage">Select Language</label>
+                <select id="codeLanguage">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="codeInput">Code</label>
+                <textarea id="codeInput" rows="10" placeholder="Enter your code here"></textarea>
+            </div>
+            <button onclick="executeCode()">Run</button>
+            <button onclick="submitCode()">Submit</button>
+            <div id="output" class="output"></div>
+            <!--Output Section-->
+            <div class="output-section" id = "output-section">
+
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.navbarUrl = "{{ url_for('static', filename='./js/text/norm_nav.txt') }}";
+        window.studentId = "{{ student_id }}"; 
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="{{ url_for('static', filename='./js/code_evaluator.js') }}"></script>
+</body>
+</html>

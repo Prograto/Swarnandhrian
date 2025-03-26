@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarnandrian Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/logical_competitor.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/logical_concepts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="{{ url_for('static', filename='./js/loadnav.js') }}"></script>
+</head>
+<body>
+
+    <!-- Card container -->
+    <div class="card-container">
+        <!-- Cards will be dynamically inserted here -->
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    <script>
+        window.navbarUrl = "{{ url_for('static', filename='./js/text/nav.txt') }}";
+        window.footerUrl = "{{ url_for('static', filename='./js/text/footer.txt') }}";
+        window.studentId = "{{ student_id }}"; 
+        const logical_concepts = "{{ logical_concepts }}"; 
+        const logical_topics = "{{ logical_topics }}"
+        console.log("Selected Sheet:", logical_concepts);
+    </script>
+    <script src="{{ url_for('static', filename='js/footer.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/logical_concepts.js') }}"></script>
+</body>
+</html>

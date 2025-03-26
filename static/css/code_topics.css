@@ -1,0 +1,194 @@
+/* General Body Style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Card Container Styling */
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card Styling */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header img {
+    max-width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Card Body */
+.card-body {
+    padding: 15px;
+}
+
+.card-body h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+
+/* Card Footer */
+.card-footer {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #f4f4f4;
+}
+
+.difficulty {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.difficulty.easy {
+    background-color: #4CAF50;
+}
+
+.difficulty.medium {
+    background-color: #FFC107;
+}
+
+.difficulty.hard {
+    background-color: #F44336;
+}
+
+.points {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+}
+
+/* Pagination Styling */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination-btn {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background-color: #0056b3;
+}
+
+.pagination-btn.active {
+    background-color: #0056b3;
+}
+
+/* Filter Section Styling */
+#filter-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#filter-section button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#filter-section button:hover {
+    background-color: #555;
+}
+
+.button{
+    position: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 40%;
+    margin-right: 40%;
+    vertical-align: middle;
+    border-radius: 5px;
+    color: #F44336;
+    background-color: aliceblue;
+    shape-outside: margin-box;
+}
+
+button:hover{
+    color: #5cf464;
+    background-color: rgb(215, 236, 236);
+}
+
+/* Responsive Design */
+
+/* For tablets and below */
+@media (max-width: 768px) {
+    #card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        max-width: 90%;
+    }
+
+    #filter-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #filter-section button {
+        width: 80%;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    .card-body h2 {
+        font-size: 18px;
+    }
+
+    .difficulty, .points {
+        font-size: 12px;
+    }
+
+    #filter-section button {
+        padding: 10px;
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .pagination-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
